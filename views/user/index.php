@@ -1,0 +1,1 @@
+Вы зашли как <?php echo $user['username']; ?>
