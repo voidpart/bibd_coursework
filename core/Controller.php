@@ -4,8 +4,17 @@ class Controller
 {
 	public $app;
 	
+	public function before($method, $params)
+	{
+		return false;
+	}
+
 	public function _call($method, $params)
 	{
+		$result = $this->before($method, $params);
+		if($result)
+			return $result;
+
 		return $this->$method($params);
 	}
 
