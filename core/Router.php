@@ -6,9 +6,9 @@ class Router
 	public $method = 'index';
 	public $class = '';
 
-	public function addRoute($url, $controller, $method = 'index')
+	public function addRoute($url, $path)
 	{
-		$this->routes[] = array($url, $controller, $method);
+		$this->routes[] = array($url, $path);
 	}
 
 	public function route($url)
@@ -16,9 +16,20 @@ class Router
 		foreach ($this->routes as $value) {
 			if($url == $value[0])
 			{
-				$this->class = $value[1];
-				$this->method = $value[2];
+				$path = explode('/', $value[1]);
+				$this->method = array_pop($path);
+				$this->class = implode('/', $path);
 				break;
+			}
+		}
+	}
+
+	public function urlFor($path, $params)
+	{
+		foreach ($this->routes as $value) {
+			if($path == $value[1])
+			{
+				return $value[0];
 			}
 		}
 	}

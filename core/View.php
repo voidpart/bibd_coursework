@@ -6,6 +6,7 @@
 class View
 {
 	public $name;
+	public $app;
 	function __construct($name)
 	{
 		$this->name = $name;

@@ -40,7 +40,7 @@ class OrderController extends BaseController
 	{
 		$this->service->makeOrderFromBasket($this->user_id);
 
-		return $this->redirectLocal('/catalog/basket');
+		return $this->redirectPath('Order/Basket');
 	}
 
 	public function BasketAdd($params)
@@ -50,7 +50,7 @@ class OrderController extends BaseController
 
 		$this->service->addToBasket($this->user_id, $product_id, $count);
 
-		return $this->redirectLocal('/catalog/basket');
+		return $this->redirectPath('Order/Basket');
 	}
 
 	public function BasketDelete($params)
@@ -59,6 +59,6 @@ class OrderController extends BaseController
 
 		$this->service->removeFromBasket($this->user_id, $product_id);
 
-		return $this->redirectLocal('/catalog/basket');
+		return $this->redirectPath('Order/Basket');
 	}
 }

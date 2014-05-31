@@ -1,3 +1,4 @@
+<?php echo $this->app->urlFor('Order/Basket'); ?>
 <?php //var_dump($products); ?>
 <h3>Всего товаров: <?php echo $basket['products_count']; ?></h3>
 <h4>Сумма: <?php echo $basket['products_sum_price']; ?></h4>

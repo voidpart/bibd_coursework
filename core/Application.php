@@ -14,6 +14,7 @@ class Application
 	protected $view_finder;
 	protected $service_finder;
 	protected $db;
+	public $url_prefix;
 
 	function __construct($config = array())
 	{
@@ -27,12 +28,21 @@ class Application
 		$this->service_finder = new ClassFinder($service_dir, 'Service');
 		$this->view_finder = new ViewFinder($view_dir);
 
-		$this->db = new PDO("mysql:host=localhost;dbname=ecommerce", "ecommerce");
+		$this->url_prefix = isset($config['url_prefix']) ? $config['url_prefix'] : '';
+
+		$constring = isset($config['db_constring']) ? $config['db_constring'] : '';
+		$dbname = isset($config['db_name']) ? $config['db_name'] : '';
+		$this->db = new PDO($constring, $dbname);
 	}
 
 	public function addRoute($url, $controller, $method = 'Index')	
 	{
 		return $this->router->addRoute($url, $controller, $method);
+	}
+
+	public function urlFor($path, $params=array())
+	{
+		return $this->url_prefix.'/'.$this->router->urlFor($path, $params);
 	}
 
 	public function makeView($name)
