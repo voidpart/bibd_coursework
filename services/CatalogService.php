@@ -40,6 +40,20 @@ class CatalogService extends ModelService
 		return $sth->fetch();
 	}
 
+	public function getCategoryById($id)
+	{
+		$sql = "SELECT categories.*,
+		COUNT(products.id) as 'products_count'
+		FROM categories
+		LEFT JOIN products ON categories.id = products.category_id
+		WHERE categories.id = :id
+		";
+		$sth = $this->db->prepare($sql);
+		$sth->execute(['id' => $id]);
+
+		return $sth->fetch();
+	}
+
 	public function getAllCategories()
 	{
 		$sql = "SELECT * FROM categories";

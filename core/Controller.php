@@ -5,6 +5,10 @@ class Controller
 	public $app;
 	public $default_layout;
 	
+	function __construct() {
+		
+	}
+
 	public function before($method, $params)
 	{
 		return false;
@@ -27,7 +31,7 @@ class Controller
 			$view = $this->app->view_finder->findLayout($layout, $name);
 		else
 			$view = $this->app->view_finder->find($name);
-		
+
 		$view->app = $this->app;
 
 		echo $view->render($params);

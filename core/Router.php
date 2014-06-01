@@ -5,6 +5,7 @@ class Router
 	public $routes = array();
 	public $method = 'index';
 	public $class = '';
+	public $params = array();
 
 	public function addRoute($url, $path)
 	{
@@ -14,12 +15,19 @@ class Router
 	public function route($url)
 	{
 		$url = strtolower($url);
+		// echo $url."<br>";
 		foreach ($this->routes as $value) {
-			if($url == $value[0])
+			// echo $value[0]."<br>";
+			$regex = preg_quote($value[0], '/');
+			$regex = '/^'.preg_replace('/\\\:(\w+)/i', '(?<$1>\w+)', $regex).'$/i';
+			// echo $regex."<br>";
+			$matches = array();
+			if(preg_match($regex, $url, $matches))
 			{
 				$path = explode('/', $value[1]);
 				$this->method = array_pop($path);
 				$this->class = implode('/', $path);
+				$this->params = $matches;
 				break;
 			}
 		}
@@ -30,7 +38,11 @@ class Router
 		foreach ($this->routes as $value) {
 			if($path == $value[1])
 			{
-				return $value[0];
+				$url = $value[0];
+				foreach ($params as $key => $value) {
+					$url = preg_replace("/:$key/i", $value, $url);
+				}
+				return $url;
 			}
 		}
 	}
@@ -47,7 +59,7 @@ class Router
 
 	public function getParams()
 	{
-		return array();
+		return $this->params;
 	}
 }
 

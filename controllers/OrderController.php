@@ -4,6 +4,10 @@ require(__DIR__.'/BaseController.php');
 
 class OrderController extends BaseController
 {
+	function __construct() {
+		$this->default_layout = 'layout';		
+	}
+	
 	public $user_id;
 	public $service;
 

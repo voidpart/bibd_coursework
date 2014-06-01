@@ -16,9 +16,9 @@
 	$app->addRoute('user/login', 'User/Login');
 	$app->addRoute('user/logout', 'User/Logout');
 
+	$app->addRoute('category/:id', 'Catalog/Category');
+	$app->addRoute('product/:id', 'Catalog/Product');
 	$app->addRoute('', 'Catalog/Index');
-	$app->addRoute('category', 'Catalog/Category');
-	$app->addRoute('product', 'Catalog/Product');
 
 	$app->addRoute('basket', 'Basket/Index');
 	$app->addRoute('basket/delete', 'Basket/Delete');

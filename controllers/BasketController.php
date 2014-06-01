@@ -9,6 +9,10 @@ class BasketController extends BaseController
 
 	public function before($method, $params)
 	{
+		$res = parent::before($method, $params);
+		if($res)
+			return $res;
+
 		if(!isset($_SESSION['user_id']))
 		{
 			return $this->redirectLocal('/user/login');
