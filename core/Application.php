@@ -3,6 +3,7 @@
 require 'core/Router.php';
 require 'core/Controller.php';
 require 'core/View.php';
+require 'core/LayoutView.php';
 require 'core/ClassFinder.php';
 require 'core/ModelService.php';
 require 'core/ViewFinder.php';
@@ -11,7 +12,7 @@ class Application
 {
 	protected $router;
 	protected $controller_finder;
-	protected $view_finder;
+	public $view_finder;
 	protected $service_finder;
 	protected $db;
 	public $url_prefix;

@@ -3,6 +3,7 @@
 class Controller
 {
 	public $app;
+	public $default_layout;
 	
 	public function before($method, $params)
 	{
@@ -20,8 +21,15 @@ class Controller
 
 	public function render($name,$params = array())
 	{
-		$view = new View($name);
+		$layout = isset($params['layout']) ? $params['layout'] : $this->default_layout;
+		
+		if($layout)
+			$view = $this->app->view_finder->findLayout($layout, $name);
+		else
+			$view = $this->app->view_finder->find($name);
+		
 		$view->app = $this->app;
+
 		echo $view->render($params);
 	}
 

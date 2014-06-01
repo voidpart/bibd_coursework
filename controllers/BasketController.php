@@ -16,6 +16,7 @@ class BasketController extends BaseController
 		$this->user_id = $_SESSION['user_id'];
 
 		$this->service = $this->app->makeService('Basket');
+		$this->default_layout = 'layout';
 
 		return false;
 	}
