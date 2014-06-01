@@ -22,8 +22,8 @@ class OrderController extends BaseController
 
 	public function Basket($params)
 	{
-		$basket = $this->service->getOrCreateBasket($this->user_id);
-		$products = $this->service->getOrderProducts($basket['id']);
+		$basket = $this->service->getBasketSummary($this->user_id);
+		$products = $this->service->getBasketProducts($this->user_id);
 
 		return $this->render('order/basket', ['products' => $products, 'basket' => $basket]);
 	}
@@ -31,7 +31,7 @@ class OrderController extends BaseController
 	public function Index($params)
 	{
 		$orders = $this->service->getOrdersForUser($this->user_id);
-		$basket = $this->service->getOrCreateBasket($this->user_id);
+		$basket = $this->service->getBasketSummary($this->user_id);
 
 		return $this->render('order/index', ['orders' => $orders, 'basket' => $basket]);
 	}

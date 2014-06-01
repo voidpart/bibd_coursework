@@ -8,11 +8,12 @@ class Router
 
 	public function addRoute($url, $path)
 	{
-		$this->routes[] = array($url, $path);
+		$this->routes[] = array(strtolower($url), $path);
 	}
 
 	public function route($url)
 	{
+		$url = strtolower($url);
 		foreach ($this->routes as $value) {
 			if($url == $value[0])
 			{

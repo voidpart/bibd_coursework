@@ -1,4 +1,5 @@
 <?php
+	session_name('bibd_ecommerce');
 	session_start();
 	
 	require 'core/Application.php';
@@ -15,15 +16,25 @@
 	$app->addRoute('user/login', 'User/Login');
 	$app->addRoute('user/logout', 'User/Logout');
 
-	$app->addRoute('catalog', 'Catalog/Index');
-	$app->addRoute('catalog/category', 'Catalog/Category');
-	$app->addRoute('catalog/product', 'Catalog/Product');
+	$app->addRoute('', 'Catalog/Index');
+	$app->addRoute('category', 'Catalog/Category');
+	$app->addRoute('product', 'Catalog/Product');
 
-	$app->addRoute('catalog/basket', 'Order/Basket');
-	$app->addRoute('catalog/basket/delete', 'Order/BasketDelete');
-	$app->addRoute('catalog/basket/add', 'Order/BasketAdd');
-	$app->addRoute('catalog/basket/order', 'Order/BasketOrder');
-	$app->addRoute('catalog/orders', 'Order/Index');
+	$app->addRoute('basket', 'Order/Basket');
+	$app->addRoute('basket/delete', 'Order/BasketDelete');
+	$app->addRoute('basket/add', 'Order/BasketAdd');
+	$app->addRoute('basket/order', 'Order/BasketOrder');
+	$app->addRoute('orders', 'Order/Index');
+
+	$app->addRoute('admin/login', 'Admin/Login/Index');
+	$app->addRoute('admin/logout', 'Admin/Login/Logout');
+	$app->addRoute('admin/', 'Admin/Main/Index');
+
+	$app->addRoute('admin/orders', 'Admin/Order/Index');
+	$app->addRoute('admin/orders/show', 'Admin/Order/Show');
+
+	$app->addRoute('admin/users', 'Admin/User/Index');
+	$app->addRoute('admin/users/show', 'Admin/User/Show');
 
 	$app->dispatchRequest($_GET['q']);
 ?>
