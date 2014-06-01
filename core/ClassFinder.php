@@ -18,8 +18,11 @@ class ClassFinder
 	{
 		$segments = explode('/', $class);
 		$classname = array_pop($segments).$this->suffix;
-		$classpath = implode('/', $segments);
-		require $this->directory."/$classpath/$classname.php";
+		if(!class_exists($classname))
+		{
+			$classpath = implode('/', $segments);
+			require $this->directory."/$classpath/$classname.php";
+		}
 		return new $classname();
 	}
 }

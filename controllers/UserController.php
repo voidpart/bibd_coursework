@@ -8,7 +8,7 @@ class UserController extends BaseController
 	{
 		if(!isset($_SESSION['user_id']))
 		{
-			return $this->redirectLocal('/user/login');
+			return $this->redirectPath('User/Login');
 		}
 
 		$service = $this->app->makeService('User');
@@ -31,7 +31,7 @@ class UserController extends BaseController
 			if($user)
 			{
 				$_SESSION['user_id'] = $user['id'];
-				return $this->redirectLocal('/user');
+				return $this->redirectPath('User/Index');
 			}
 			else
 			{
@@ -46,13 +46,8 @@ class UserController extends BaseController
 
 	public function Logout($params)
 	{
-		if(!isset($_SESSION['user_id']))
-		{
-			return $this->redirectLocal('/user/login');
-		}
-
 		unset($_SESSION['user_id']);
-		return $this->redirectLocal('/user/login');
+		return $this->redirectPath('User/Login');
 	}
 }
 

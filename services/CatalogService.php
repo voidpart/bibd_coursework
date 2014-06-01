@@ -59,6 +59,49 @@ class CatalogService extends ModelService
 		$sql = "SELECT * FROM categories";
 		return $this->db->query($sql)->fetchAll();
 	}
+
+	public function updateCategory($category)
+	{
+		$sql = "UPDATE categories SET
+		title = :title,
+		name = :name,
+		description = :description
+		WHERE id=:id";
+		$sth = $this->db->prepare($sql);
+
+		return $sth->execute($category);
+	}
+
+	public function updateProduct($product)
+	{
+		$sql = "UPDATE products SET
+		title = :title,
+		description = :description,
+		price = :price,
+		category_id = :category_id
+		WHERE id=:id";
+		$sth = $this->db->prepare($sql);
+
+		$sth->execute($product);
+	}
+
+	public function addProduct($product)
+	{
+		$sql = "INSERT INTO products(title, description, price, category_id) VALUES
+		(:title, :description, :price, :category_id)";
+		$sth = $this->db->prepare($sql);
+
+		$sth->execute($product);
+	}
+
+	public function addCategory($category)
+	{
+		$sql = "INSERT INTO categories(name, title, description) VALUES
+		(:name, :title, :description)";
+		$sth = $this->db->prepare($sql);
+
+		$sth->execute($category);
+	}
 }
 
 ?>

@@ -34,6 +34,7 @@ class Application
 		$constring = isset($config['db_constring']) ? $config['db_constring'] : '';
 		$dbname = isset($config['db_name']) ? $config['db_name'] : '';
 		$this->db = new PDO($constring, $dbname);
+		$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 
 	public function addRoute($url, $controller, $method = 'Index')	

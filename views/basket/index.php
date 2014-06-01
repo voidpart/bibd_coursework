@@ -1,3 +1,5 @@
+
+<?php if($basket) { ?>
 <h2>Корзина</h2>
 <h3>Всего товаров: <?php echo $basket['products_count']; ?></h3>
 <h4>Общая цена товаров в корзине: <?php echo $basket['products_sum_price']; ?></h4>
@@ -11,9 +13,16 @@
 		</form>
 	</li>
 <?php }?>
+</ul>
 
 <form action="<?php echo $this->app->urlFor('Order/MakeOrder'); ?>" method="GET">
-	<button type="submit">Сделать заказ</button>
+	<button type="submit">Оформить заказ</button>
 </form>
 
-</ul>
+<?php
+} else { 
+?>
+<h2>Корзина пуста</h2>
+<?php
+}
+?>

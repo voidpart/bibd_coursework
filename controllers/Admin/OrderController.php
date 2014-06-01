@@ -24,7 +24,7 @@ class OrderController extends AdminBaseController
 
 	public function Show($params)
 	{
-		$id = $_GET['id'];
+		$id = $params['id'];
 
 		$order = $this->service->getOrderById($id);
 		$products = $this->service->getOrderProducts($id);

@@ -31,10 +31,20 @@
 	$app->addRoute('admin/', 'Admin/Main/Index');
 
 	$app->addRoute('admin/orders', 'Admin/Order/Index');
-	$app->addRoute('admin/orders/show', 'Admin/Order/Show');
+	$app->addRoute('admin/orders/:id', 'Admin/Order/Show');
 
 	$app->addRoute('admin/users', 'Admin/User/Index');
-	$app->addRoute('admin/users/show', 'Admin/User/Show');
+	$app->addRoute('admin/users/add', 'Admin/User/Add');
+	$app->addRoute('admin/users/:id', 'Admin/User/Show');
+	$app->addRoute('admin/users/:id/edit', 'Admin/User/Edit');
+
+	$app->addRoute('admin/catalog', 'Admin/Catalog/Index');
+	$app->addRoute('admin/catalog/category/add', 'Admin/Catalog/CategoryAdd');
+	$app->addRoute('admin/catalog/category/:id', 'Admin/Catalog/Category');
+	$app->addRoute('admin/catalog/category/:id/edit', 'Admin/Catalog/CategoryEdit');
+	$app->addRoute('admin/catalog/product/add', 'Admin/Catalog/ProductAdd');
+	$app->addRoute('admin/catalog/product/:id', 'Admin/Catalog/ProductEdit');
+	// $app->addRoute('admin/catalog/product/:id/edit', 'Admin/Catalog/ProductEdit');
 
 	$app->dispatchRequest($_GET['q']);
 ?>

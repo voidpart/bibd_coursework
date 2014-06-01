@@ -4,8 +4,6 @@ require(__DIR__.'/AdminBaseController.php');
 
 class LoginController extends BaseController
 {
-	use AdminLoginMixin;
-
 	public function Index($params)
 	{
 		$error = NULL;
@@ -19,7 +17,7 @@ class LoginController extends BaseController
 			$user = $service->checkAdmin($username, $password);
 			if($user)
 			{
-				$this->adminLogin($user);
+				$this->userLogin($user);
 				return $this->redirectPath('Admin/Main/Index');
 			}
 			else 
@@ -33,7 +31,7 @@ class LoginController extends BaseController
 
  	public function Logout($params)
  	{
- 		$this->adminLogout();
+ 		$this->userLogout();
  		return $this->redirectPath('Admin/Login/Index');
  	}
 }

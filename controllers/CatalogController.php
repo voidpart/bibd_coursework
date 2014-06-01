@@ -4,12 +4,6 @@ require(__DIR__.'/BaseController.php');
 
 class CatalogController extends BaseController
 {
-	function __construct()
-	{
-		parent::__construct();
-		$this->default_layout = 'layout';
-	}
-
 	public function Index($params)
 	{
 		$service = $this->app->makeService('Catalog');

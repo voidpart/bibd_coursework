@@ -1,3 +1,4 @@
+<p><a href="<?php echo $this->app->urlFor('Admin/User/Add') ?>">Добавить пользователя</a></p>
 <table>
 <?php foreach($users as $user)
 {?>
@@ -5,7 +6,7 @@
 		<td>
 			<?php
 				$username = $user['username'];
-				$url = $this->app->urlFor('Admin/User/Show')."?id=".$user['id'];
+				$url = $this->app->urlFor('Admin/User/Edit', ['id' => $user['id']]);
 				$str = "<a href=\"$url\">$username</a>";
 				echo $str;
 			?>

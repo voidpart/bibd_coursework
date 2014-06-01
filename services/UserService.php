@@ -50,6 +50,27 @@ class UserService extends ModelService
 		$sth->execute();
 		return $sth->fetchAll();
 	}
+
+	public function updateUser($user)
+	{
+		$sql = "UPDATE users SET
+		username = :username,
+		password = :password,
+		is_admin = :is_admin
+		WHERE id=:id";
+		$sth = $this->db->prepare($sql);
+
+		return $sth->execute($user);
+	}
+
+	public function addUser($user)
+	{
+		$sql = "INSERT INTO users(username, password, is_admin) VALUES
+		(:username, :password, :is_admin)";
+		$sth = $this->db->prepare($sql);
+
+		$sth->execute($user);
+	}
 }
 
 ?>
