@@ -20,11 +20,11 @@
 	$app->addRoute('category', 'Catalog/Category');
 	$app->addRoute('product', 'Catalog/Product');
 
-	$app->addRoute('basket', 'Order/Basket');
-	$app->addRoute('basket/delete', 'Order/BasketDelete');
-	$app->addRoute('basket/add', 'Order/BasketAdd');
-	$app->addRoute('basket/order', 'Order/BasketOrder');
+	$app->addRoute('basket', 'Basket/Index');
+	$app->addRoute('basket/delete', 'Basket/Delete');
+	$app->addRoute('basket/add', 'Basket/Add');
 	$app->addRoute('orders', 'Order/Index');
+	$app->addRoute('orders/make', 'Order/MakeOrder');
 
 	$app->addRoute('admin/login', 'Admin/Login/Index');
 	$app->addRoute('admin/logout', 'Admin/Login/Logout');

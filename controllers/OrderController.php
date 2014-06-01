@@ -20,45 +20,18 @@ class OrderController extends BaseController
 		return false;
 	}
 
-	public function Basket($params)
-	{
-		$basket = $this->service->getBasketSummary($this->user_id);
-		$products = $this->service->getBasketProducts($this->user_id);
-
-		return $this->render('order/basket', ['products' => $products, 'basket' => $basket]);
-	}
-
 	public function Index($params)
 	{
 		$orders = $this->service->getOrdersForUser($this->user_id);
-		$basket = $this->service->getBasketSummary($this->user_id);
+		$basket = $this->app->makeService('Basket')->getBasketSummary($this->user_id);
 
 		return $this->render('order/index', ['orders' => $orders, 'basket' => $basket]);
 	}
 
-	public function BasketOrder($params)
+	public function MakeOrder($params)
 	{
 		$this->service->makeOrderFromBasket($this->user_id);
 
-		return $this->redirectPath('Order/Basket');
-	}
-
-	public function BasketAdd($params)
-	{
-		$product_id = $_POST['product_id'];
-		$count = $_POST['count'];
-
-		$this->service->addToBasket($this->user_id, $product_id, $count);
-
-		return $this->redirectPath('Order/Basket');
-	}
-
-	public function BasketDelete($params)
-	{
-		$product_id = $_POST['product_id'];
-
-		$this->service->removeFromBasket($this->user_id, $product_id);
-
-		return $this->redirectPath('Order/Basket');
+		return $this->redirectPath('Order/Index');
 	}
 }
