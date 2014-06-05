@@ -1,4 +1,19 @@
-#page {
-	width: 800px;
-	margin: auto;
+#searchbox {
+	padding-top: 15px;
+}
+
+input[type="number"] {
+   width:50px;
+}
+
+.imgbox {
+	padding-top: 5px;
+	box-sizing: border-box;
+	height: 200px;
+	width: 100%;
+	overflow: hidden;
+}
+
+#footer {
+	margin: 30px 0;
 }

@@ -33,6 +33,7 @@ class Controller
 			$view = $this->app->view_finder->find($name);
 
 		$view->app = $this->app;
+		$view->controller = $this;
 
 		echo $view->render($params);
 	}

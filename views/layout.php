@@ -1,38 +1,51 @@
 <html>
 <head>
 	<title>Hello world!</title>
+	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/main.css">
+	<script src="<?php echo $this->app->url_prefix;?>/static/js/jquery.js"></script>
+	<script src="<?php echo $this->app->url_prefix;?>/static/js/bootstrap.js"></script>
 </head>
 <body>
-<div id="page">
-	<div id="header">
-
-	<?php
-		$url = $this->app->urlFor('Catalog/Index');
-		echo "<p><a href=\"$url\">Каталог</a></p>";
-		if(isset($_SESSION['user_id']))
-		{
-			$user_id = $_SESSION['user_id'];
-			$service = $this->app->makeService('User');
-			$user = $service->getUserById($user_id);
-			echo "Вы вошли как ".$user['username'];
-			$url = $this->app->urlFor('User/Logout');
-			echo "<a href=\"$url\">Выйти</a>";
-			$url = $this->app->urlFor('Basket/Index');
-			echo "<p><a href=\"$url\">Корзина</a></p>";
-			$url = $this->app->urlFor('Order/Index');
-			echo "<p><a href=\"$url\">Мои заказы</a></p>";
-		}
-		else
-		{
-			$url = $this->app->urlFor('User/Login');
-			echo "<a href=\"$url\">Войти</a>";
-		}
-	?>
-
+<div class="container">
+	<div id="header" class="container">
+		<div class="col-md-3">
+			logo
+		</div>
+		<div class="col-md-5" id="searchbox">
+			<form action="<?php echo $this->app->urlFor('Search/Index') ?>">
+				<input type="text" placeholder="Поиск" name="search">
+				<button type="submit">Найти</button>
+			</form>
+		</div>
+		<div class="col-md-4" id="userbox">
+			<?php include __DIR__."/_userbox.php"; ?>
+		</div>
 	</div>
-	<div id="content">
+	<nav class="navbar navbar-default" role="navigation">
+		<div id="mainmenu" class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li><a href="<?php echo $this->app->url_prefix?>">Главная</a></li>
+				<?php
+					$service = $this->app->makeService('Catalog');
+					$categories = $service->getAllCategories();
+					foreach ($categories as $category) {
+						$title = $category['title'];
+						$url = $this->app->urlFor('Catalog/Category', ['id' => $category['id']]);
+						echo "<li><a href=\"$url\">$title</a></li>";
+					}
+				?>
+			</ul>
+		</div>
+	</nav>
+	<div id="content" class="container">
 	<?php echo $content; ?>
+	</div>
+	<div id="footer" class="container">
+		<p class="text-center">
+		(c) 2014
+		</p>
 	</div>
 </div>
 </body>

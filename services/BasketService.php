@@ -25,7 +25,9 @@ class BasketService extends ModelService
 		$product_id = NULL;
 		$count = NULL;
 
-		$sql = "INSERT INTO basket_products(user_id, product_id, count) VALUES(:user_id, :product_id, :count)";
+		$sql = "INSERT INTO basket_products(user_id, product_id, count)
+		VALUES(:user_id, :product_id, :count)
+		ON DUPLICATE KEY UPDATE count = count + :count";
 		$sth = $this->db->prepare($sql);
 		$sth->bindParam('user_id', $user_id, PDO::PARAM_INT);
 		$sth->bindParam('product_id', $product_id, PDO::PARAM_INT);

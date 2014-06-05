@@ -7,6 +7,8 @@ class View
 {
 	public $file;
 	public $app;
+	public $controller;
+	
 	function __construct($file)
 	{
 		$this->file = $file;

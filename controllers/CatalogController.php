@@ -18,13 +18,13 @@ class CatalogController extends BaseController
 		$id = $params['id'];
 
 		$page = isset($_GET['page']) ? $_GET['page'] : 1;
-		$products_per_page = 10;
+		$products_per_page = 12;
 
 		$service = $this->app->makeService('Catalog');
 
 		$products = $service->getProductsForCategoryId($id, ($page-1)*$products_per_page, $products_per_page);
 		$category = $service->getCategoryById($id);
-		$page_count = $category['products_count'] / $products_per_page + 1;
+		$page_count = (int)($category['products_count'] / $products_per_page + 1);
 
 		return $this->render('catalog/category', [
 			'products' => $products, 
