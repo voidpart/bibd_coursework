@@ -1,10 +1,4 @@
-DROP DATABASE IF EXISTS ecommerce;
-
-CREATE DATABASE ecommerce
-	CHARACTER SET 'utf8';
-
-USE ecommerce;
-
+DROP TABLE IF EXISTS users;
 CREATE TABLE users(
 	id INT NOT NULL AUTO_INCREMENT,
 	username VARCHAR(64) NOT NULL,
@@ -14,6 +8,7 @@ CREATE TABLE users(
 	UNIQUE(username)
 );
 
+DROP TABLE IF EXISTS categories;
 CREATE TABLE categories(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(64) NOT NULL,
@@ -23,15 +18,18 @@ CREATE TABLE categories(
 	UNIQUE(name)
 );
 
+DROP TABLE IF EXISTS products;
 CREATE TABLE products(
 	id INT NOT NULL AUTO_INCREMENT,
 	category_id INT NOT NULL,
 	title VARCHAR(64) NOT NULL,
+	image VARCHAR(256) NULL,
 	description TEXT NULL,
 	price DECIMAL(15, 2) NOT NULL,
 	PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS orders;
 CREATE TABLE orders(
 	id INT NOT NULL AUTO_INCREMENT,
 	user_id INT NOT NULL,
@@ -40,6 +38,7 @@ CREATE TABLE orders(
 	PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS basket_products;
 CREATE TABLE basket_products(
 	id INT NOT NULL AUTO_INCREMENT,
 	user_id INT NOT NULL,
@@ -49,7 +48,8 @@ CREATE TABLE basket_products(
 	UNIQUE(user_id, product_id)
 );
 
-CREATE TABLE orders_products(
+DROP TABLE IF EXISTS order_products;
+CREATE TABLE order_products(
 	id INT NOT NULL AUTO_INCREMENT,
 	order_id INT NOT NULL,
 	product_id INT NOT NULL,
@@ -63,7 +63,7 @@ INSERT INTO categories(id, name, title) VALUES(1, 'auto', 'Авто');
 INSERT INTO products(id, category_id, title, price) VALUES(1, 1, 'Ford Mustang \'67', 1000);
 INSERT INTO products(id, category_id, title, price) VALUES(2, 1, 'Shelby Cobra Concept', 5000);
 INSERT INTO orders(id, user_id, status) VALUES(1,1, 'order');
-INSERT INTO orders_products(order_id, product_id) VALUES(1, 1);
+INSERT INTO order_products(order_id, product_id) VALUES(1, 1);
 INSERT INTO basket_products(user_id, product_id) VALUES(1, 2);
 
 INSERT INTO products(category_id, title, price) VALUES(1, 'Pontiac Firebird', 1999.99);

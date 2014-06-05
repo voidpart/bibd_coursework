@@ -2,7 +2,7 @@
 	$service = $this->app->makeService('Catalog');
 	$categories = $service->getAllCategories();
 ?>
-<form method="POST">
+<form enctype="multipart/form-data" method="POST">
 	<p><input type="text" name="title"></p>
 	<p><textarea name="description"></textarea></p>
 	<p><input type="text" name="price"></p>
@@ -15,5 +15,6 @@
 			}
 		?>
 	</select></p>
+	<p><input type="file" name="image"></p>
 	<button type="submit">Сохранить</button>
 </form>

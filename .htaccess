@@ -6,6 +6,7 @@ Options -Indexes
  	RewriteEngine on
  	RewriteBase /~h8x/
 
+ 	RewriteCond %{REQUEST_FILENAME} !media/
  	RewriteCond %{REQUEST_FILENAME} !static/
 	RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
 </IfModule>

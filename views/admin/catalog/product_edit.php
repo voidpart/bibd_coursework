@@ -15,5 +15,6 @@
 			}
 		?>
 	</select></p>
+	<p><input type="file" name="image"></p>
 	<button type="submit">Сохранить</button>
 </form>

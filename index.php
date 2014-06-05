@@ -7,7 +7,7 @@
 	$config = [
 		'url_prefix' => '/~h8x',
 		'db_constring' => 'mysql:host=localhost;dbname=ecommerce',
-		'db_name' => 'ecommerce'
+		'db_user' => 'ecommerce'
 	];
 
 	$app = new Application($config);

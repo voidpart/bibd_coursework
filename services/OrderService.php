@@ -10,7 +10,7 @@ class OrderService extends ModelService
 		
 		$id = $this->db->lastInsertId();
 
-		$sql = "INSERT INTO orders_products(order_id, product_id, count)
+		$sql = "INSERT INTO order_products(order_id, product_id, count)
 		SELECT :order_id, product_id, count FROM basket_products
 		WHERE basket_products.user_id = :user_id";
 
@@ -25,11 +25,11 @@ class OrderService extends ModelService
 
 	public function getOrderProducts($order_id)
 	{
-		$sql = "SELECT products.*, orders_products.count,
-				products.price*orders_products.count AS 'sum_price'
-				FROM products, orders_products 
-				WHERE products.id = orders_products.product_id
-				AND orders_products.order_id = :order_id";
+		$sql = "SELECT products.*, order_products.count,
+				products.price*order_products.count AS 'sum_price'
+				FROM products, order_products 
+				WHERE products.id = order_products.product_id
+				AND order_products.order_id = :order_id";
 		$sth = $this->db->prepare($sql);
 		$sth->execute(['order_id' => $order_id]);
 
@@ -39,11 +39,11 @@ class OrderService extends ModelService
 	public function getOrdersForUser($user_id)
 	{
 		$sql = "SELECT orders.*,
-				COUNT(orders_products.id) AS 'products_count',
-				SUM(orders_products.count * products.price) AS 'products_sum_price'
+				COUNT(order_products.id) AS 'products_count',
+				SUM(order_products.count * products.price) AS 'products_sum_price'
 				FROM orders
-				LEFT OUTER JOIN orders_products ON orders_products.order_id = orders.id
-				JOIN products ON orders_products.product_id = products.id
+				LEFT OUTER JOIN order_products ON order_products.order_id = orders.id
+				JOIN products ON order_products.product_id = products.id
 				WHERE orders.user_id = :user_id
 				GROUP BY orders.id";
 		$query = $this->db->prepare($sql);
@@ -57,12 +57,12 @@ class OrderService extends ModelService
 	{
 		$sql = "SELECT orders.*,
 		users.username,
-		COUNT(orders_products.id) AS 'products_count',
-		SUM(orders_products.count * products.price) AS 'products_sum_price'
+		COUNT(order_products.id) AS 'products_count',
+		SUM(order_products.count * products.price) AS 'products_sum_price'
 		FROM orders
 		LEFT JOIN users ON orders.user_id = users.id
-		LEFT OUTER JOIN orders_products ON orders_products.order_id = orders.id
-		LEFT JOIN products ON orders_products.product_id = products.id
+		LEFT OUTER JOIN order_products ON order_products.order_id = orders.id
+		LEFT JOIN products ON order_products.product_id = products.id
 		WHERE orders.id = :id
 		GROUP BY orders.id
 		ORDER BY orders.time";
@@ -77,12 +77,12 @@ class OrderService extends ModelService
 	{
 		$sql = "SELECT orders.*,
 		users.username,
-		COUNT(orders_products.id) AS 'products_count',
-		SUM(orders_products.count * products.price) AS 'products_sum_price'
+		COUNT(order_products.id) AS 'products_count',
+		SUM(order_products.count * products.price) AS 'products_sum_price'
 		FROM orders
 		LEFT JOIN users ON orders.user_id = users.id
-		LEFT OUTER JOIN orders_products ON orders_products.order_id = orders.id
-		LEFT JOIN products ON orders_products.product_id = products.id
+		LEFT OUTER JOIN order_products ON order_products.order_id = orders.id
+		LEFT JOIN products ON order_products.product_id = products.id
 		GROUP BY orders.id
 		ORDER BY orders.time";
 

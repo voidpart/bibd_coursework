@@ -78,7 +78,8 @@ class CatalogService extends ModelService
 		title = :title,
 		description = :description,
 		price = :price,
-		category_id = :category_id
+		category_id = :category_id,
+		image = :image
 		WHERE id=:id";
 		$sth = $this->db->prepare($sql);
 
@@ -87,8 +88,8 @@ class CatalogService extends ModelService
 
 	public function addProduct($product)
 	{
-		$sql = "INSERT INTO products(title, description, price, category_id) VALUES
-		(:title, :description, :price, :category_id)";
+		$sql = "INSERT INTO products(title, description, price, category_id, image) VALUES
+		(:title, :description, :price, :category_id, :image)";
 		$sth = $this->db->prepare($sql);
 
 		$sth->execute($product);
@@ -102,6 +103,7 @@ class CatalogService extends ModelService
 
 		$sth->execute($category);
 	}
+
 }
 
 ?>
