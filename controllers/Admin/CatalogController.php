@@ -65,6 +65,12 @@ class CatalogController extends AdminBaseController
 			$product['description'] = $_POST['description'];
 			$product['price'] = $_POST['price'];
 			$product['category_id'] = $_POST['category_id'];
+			$product['image'] = $_POST['image'];
+
+			if(isset($_FILES['image_new']) && $_FILES['image_new']['tmp_name'])
+			{	
+				$product['image'] = $this->app->image_helper->saveFile($_FILES['image_new']);
+			}
 
 			$this->service->updateProduct($product);
 
@@ -86,7 +92,6 @@ class CatalogController extends AdminBaseController
 			$product['description'] = $_POST['description'];
 			$product['price'] = $_POST['price'];
 			$product['category_id'] = $_POST['category_id'];
-			var_dump($_FILES);
 			$product['image'] = $this->app->image_helper->saveFile($_FILES['image']);
 
 			$this->service->addProduct($product);
