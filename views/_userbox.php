@@ -18,13 +18,14 @@ if ($this->controller->isUserLogged())
 	}
 	?>
 	<a href="<?php echo $this->app->urlFor('Basket/Index') ?>">Моя корзина</a> | 
+	<a href="<?php echo $this->app->urlFor('Order/Index') ?>">Мои заказы</a> | 
 	<a href="<?php echo $this->app->urlFor('User/Logout') ?>">Выйти</a>
 </div>
 
 <div class="row">
 	<?php 
 	if($basket)
-		echo $basket['products_count']."товаров | ".$basket['products_sum_price']." руб.";
+		echo $basket['products_count']." товаров | ".$basket['products_sum_price']." руб.";
 	else
 		echo "Корзина пуста.";
 	?>

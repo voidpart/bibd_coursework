@@ -4,19 +4,20 @@
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Bad+Script&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<script src="<?php echo $this->app->url_prefix;?>/static/js/jquery.js"></script>
 	<script src="<?php echo $this->app->url_prefix;?>/static/js/bootstrap.js"></script>
 </head>
 <body>
-<div class="container">
+<div id="page" class="container">
 	<div id="header" class="container">
 		<div class="col-md-3">
 			logo
 		</div>
 		<div class="col-md-5" id="searchbox">
-			<form action="<?php echo $this->app->urlFor('Catalog/Search') ?>">
-				<input type="text" placeholder="Поиск" name="search">
-				<button type="submit">Найти</button>
+			<form class="form-inline" action="<?php echo $this->app->urlFor('Catalog/Search') ?>">
+				<input type="text" placeholder="Поиск" name="search" class="form-control">
+				<button type="submit" class="btn btn-default">Найти</button>
 			</form>
 		</div>
 		<div class="col-md-4" id="userbox">
