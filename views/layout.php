@@ -14,7 +14,7 @@
 			logo
 		</div>
 		<div class="col-md-5" id="searchbox">
-			<form action="<?php echo $this->app->urlFor('Search/Index') ?>">
+			<form action="<?php echo $this->app->urlFor('Catalog/Search') ?>">
 				<input type="text" placeholder="Поиск" name="search">
 				<button type="submit">Найти</button>
 			</form>

@@ -104,6 +104,17 @@ class CatalogService extends ModelService
 		$sth->execute($category);
 	}
 
+
+	public function searchProducts($search)
+	{
+		$sql = "SELECT * FROM products WHERE title LIKE :title";
+
+		$sth = $this->db->prepare($sql);
+
+		$sth->execute(['title' => "%$search%"]);
+
+		return $sth->fetchAll();	
+	}
 }
 
 ?>

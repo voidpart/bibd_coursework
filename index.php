@@ -18,6 +18,7 @@
 
 	$app->addRoute('category/:id', 'Catalog/Category');
 	$app->addRoute('product/:id', 'Catalog/Product');
+	$app->addRoute('search', 'Catalog/Search');
 	$app->addRoute('', 'Catalog/Index');
 
 	$app->addRoute('basket', 'Basket/Index');
