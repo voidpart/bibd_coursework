@@ -1,14 +1,13 @@
 <?php
-	session_name('bibd_ecommerce');
+	include __DIR__.'/config.php';
+
+	if(isset($config['session_name']))
+	{
+		session_name($config['session_name']);
+	}
 	session_start();
 	
 	require 'core/Application.php';
-
-	$config = [
-		'url_prefix' => '/~h8x/dev',
-		'db_constring' => 'mysql:host=localhost;dbname=ecommerce',
-		'db_user' => 'ecommerce'
-	];
 
 	$app = new Application($config);
 
