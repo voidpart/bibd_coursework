@@ -1,10 +1,32 @@
-<h2><?php echo $category['title'] ?></h2>
-<p><a href="<?php echo $this->app->urlFor('Admin/Catalog/CategoryEdit', ['id' => $category['id']]) ?>">Изменить</a></p>
-<p><a href="<?php echo $this->app->urlFor('Admin/Catalog/ProductAdd') ?>">Добавить товар</a></p>
-<ul>
-<?php foreach($products as $product){
-	$url = $this->app->urlFor('Admin/Catalog/ProductEdit', ['id' => $product['id']]);
-	?>
-	<li><a href="<?php echo $url ?>"> <?php echo $product['title']; ?></a></li>
-<?php }?>
-</ul>
+<h2>Категория: <?php echo $category['title'] ?></h2>
+<a href="<?php echo $this->app->urlFor('Admin/Catalog/ProductAdd', $category) ?>">Добавить товар</a>
+
+<table class="table">
+	<tr>
+		<th>ID</th>
+		<th>Название</th>
+		<th>Действия</th>
+	</tr>
+
+<?php
+foreach ($products as $product) {
+?>
+	
+	<tr>
+		<td><?php echo $product['id'] ?></td>
+		<td>
+			<a href="#">
+				<?php echo $product['title'] ?>
+			</a>
+		</td>
+		<td>
+			<a href="<?php echo $this->app->urlFor('Admin/Catalog/ProductEdit', $product) ?>">Изменить</a>
+			<a href="#">Удалить</a>
+		</td>
+	</tr>
+
+<?php
+}
+?>
+
+</table>

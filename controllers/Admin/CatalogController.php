@@ -85,13 +85,14 @@ class CatalogController extends AdminBaseController
 
 	public function ProductAdd($params)
 	{
+		$category_id = $params['id'];
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
 			$product = array();
 			$product['title'] = $_POST['title'];
 			$product['description'] = $_POST['description'];
 			$product['price'] = $_POST['price'];
-			$product['category_id'] = $_POST['category_id'];
+			$product['category_id'] = $category_id;
 			$product['image'] = $this->app->image_helper->saveFile($_FILES['image']);
 
 			$this->service->addProduct($product);

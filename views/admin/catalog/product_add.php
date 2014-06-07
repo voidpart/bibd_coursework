@@ -1,20 +1,22 @@
-<?php
-	$service = $this->app->makeService('Catalog');
-	$categories = $service->getAllCategories();
-?>
+<h2>Добавить товар</h2>
 <form enctype="multipart/form-data" method="POST">
-	<p><input type="text" name="title"></p>
-	<p><textarea name="description"></textarea></p>
-	<p><input type="text" name="price"></p>
-	<p><select name="category_id">
-		<?php
-			foreach ($categories as $category) {
-				$title = $category['title'];
-				$id = $category['id'];
-				echo "<option value=\"$id\">$title</option>";
-			}
-		?>
-	</select></p>
-	<p><input type="file" name="image"></p>
-	<button type="submit">Сохранить</button>
+	<div class="form-group">
+    	<label for="formTitle">Имя</label>
+    	<input type="text" name="title" class="form-control" id="formTitle">
+ 	</div>
+ 	<div class="form-group">
+    	<label for="formPrice">Цена</label>
+    	<input type="number" name="price" class="form-control" id="formPrice">
+ 	</div>
+	<div class="form-group">
+    	<label for="formDescription">Описание</label>
+    	<textarea class="form-control" id="formDescription" name="description"></textarea>
+ 	</div>
+ 	<div class="form-group">
+    	<label for="formImage">Изображение</label>
+    	<input type="file" class="form-control" id="formImage" name="image">
+ 	</div>
+	<div class="form-group">
+	      <button type="submit" class="btn btn-default">Создать</button>
+	</div>
 </form>

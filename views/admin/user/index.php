@@ -1,16 +1,31 @@
-<p><a href="<?php echo $this->app->urlFor('Admin/User/Add') ?>">Добавить пользователя</a></p>
-<table>
-<?php foreach($users as $user)
-{?>
+<h2>Пользователи</h2>
+<a href="<?php echo $this->app->urlFor('Admin/User/Add') ?>">Добавить нового пользователя</a>
+
+<table class="table">
 	<tr>
+		<th>ID</th>
+		<th>Username</th>
+		<th>Действия</th>
+	</tr>
+
+<?php
+foreach ($users as $user) {
+?>
+	
+	<tr>
+		<td><?php echo $user['id'] ?></td>
 		<td>
-			<?php
-				$username = $user['username'];
-				$url = $this->app->urlFor('Admin/User/Edit', ['id' => $user['id']]);
-				$str = "<a href=\"$url\">$username</a>";
-				echo $str;
-			?>
+			<a href="#">
+				<?php echo $user['username'] ?>
+			</a>
+		</td>
+		<td>
+			<a href="<?php echo $this->app->urlFor('Admin/User/Edit', $user) ?>">Изменить</a>
+			<a href="#">Удалить</a>
 		</td>
 	</tr>
-<?php }
+
+<?php
+}
 ?>
+</table>

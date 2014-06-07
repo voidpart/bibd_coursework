@@ -1,6 +1,17 @@
+<h2>Изменить пользователя: <?php echo $user['username'] ?></h2>
 <form method="POST">
-	<p><input type="text" name="username" value="<?php echo $user['username'] ?>"></p>
-	<p><input type="password" name="password" value="<?php echo $user['password'] ?>"></p>
-	<p>Admin: <input type="checkbox" name="is_admin" <?php echo $user['is_admin'] ? "checked" : "" ?>></p>
-	<button type="submit">Сохранить</button>
+	<div class="form-group">
+    	<label>Имя пользователя</label>
+    	<input type="text" name="username" class="form-control" value="<?php echo $user['username'] ?>">
+ 	</div>
+ 	<div class="form-group">
+    	<label for="formPrice">Пароль</label>
+    	<input type="number" name="price" class="form-control" value="<?php echo $user['password'] ?>">
+ 	</div>
+	<div class="form-group">
+    	<label><input type="checkbox" name="is_admin" <?php if($user['is_admin']) echo"checked"?>> Администратор</label>
+ 	</div>
+	<div class="form-group">
+	      <button type="submit" class="btn btn-default">Сохранить</button>
+	</div>
 </form>

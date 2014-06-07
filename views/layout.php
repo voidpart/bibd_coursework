@@ -13,7 +13,7 @@
 <div id="page" class="container">
 	<div id="header" class="container-fluid">
 		<div class="col-md-3">
-			logo
+			<!-- logo -->
 		</div>
 		<div class="col-md-5" id="searchbox">
 			<form class="form-inline" action="<?php echo $this->app->urlFor('Catalog/Search') ?>">
@@ -44,7 +44,7 @@
 	<div id="content" class="container-fluid">
 	<?php echo $content; ?>
 	</div>
-	<div id="footer" class="container">
+	<div id="footer" class="container-fluid">
 		<p class="text-center">
 		(c) 2014
 		</p>

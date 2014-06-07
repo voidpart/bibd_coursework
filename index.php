@@ -42,7 +42,7 @@
 	$app->addRoute('admin/catalog/category/add', 'Admin/Catalog/CategoryAdd');
 	$app->addRoute('admin/catalog/category/:id', 'Admin/Catalog/Category');
 	$app->addRoute('admin/catalog/category/:id/edit', 'Admin/Catalog/CategoryEdit');
-	$app->addRoute('admin/catalog/product/add', 'Admin/Catalog/ProductAdd');
+	$app->addRoute('admin/catalog/category/:id/add', 'Admin/Catalog/ProductAdd');
 	$app->addRoute('admin/catalog/product/:id', 'Admin/Catalog/ProductEdit');
 	// $app->addRoute('admin/catalog/product/:id/edit', 'Admin/Catalog/ProductEdit');
 
