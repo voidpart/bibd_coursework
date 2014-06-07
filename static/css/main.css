@@ -1,17 +1,43 @@
+@font-face {
+  font-family: 'Bad Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bad Script Regular'), local('BadScript-Regular'), url(../fonts/badscript.woff) format('woff');
+}
+
+body {
+	font-family: 'Bad Script', cursive;
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+a {
+	color: #800000;
+}
+
+.cell {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#imgbox {
+	width: auto;
+	max-width: 100%;
+	min-height: 200px;
+	max-height: 300px;
+}
+
 #searchbox {
-	padding-top: 15px;
+	padding-top:15px;
+	padding-bottom: 15px;
 }
 
 input[type="number"] {
    width:50px;
 }
 
-.imgbox {
-	padding-top: 5px;
-	box-sizing: border-box;
-	height: 200px;
-	width: 100%;
-	overflow: hidden;
+#header {
+	margin-bottom: 10px;
 }
 
 #footer {
@@ -20,19 +46,10 @@ input[type="number"] {
 
 body {
 	background-image: url('../img/bg.jpg');
-		background-size: cover;
+	background-size: cover;
 }
 
 #page {
-	background-color: rgba(255,255,255,0.1);
-}
-
-* {
-	font-family: 'Bad Script', cursive;
-	font-weight: bold;
-}
-
-a {
-	color: #800000;
-	font-size: 12pt;
+	background-color: rgba(255,255,255,0.2);
+	border: solid 1px rgba(255,255,255,0.5);
 }

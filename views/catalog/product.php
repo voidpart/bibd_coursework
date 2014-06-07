@@ -1,6 +1,7 @@
 <?php
 	$title = $product['title'];
 	$description = $product['description'] ? $product['description'] : "Нет описания";
+	$image_url = $this->app->image_helper->getFileUrl($product['image']);
 ?>
 <h2><?php echo $title ?></h2>
 <div class="row">

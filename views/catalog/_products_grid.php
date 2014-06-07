@@ -5,14 +5,14 @@
 	{
 		$image_url = $this->app->image_helper->getFileUrl($product['image']);
 	} else {
-		$image_url = "none.jpg";
+		$image_url = $this->app->url_prefix."/static/img/nofoto.jpg";
 	}
 	?>
 
-	<div class="col-lg-3 col-md-3 col-sm-6">
+	<div class="col-lg-3 col-md-3 col-sm-6 cell">
 		<a href="<?php echo $url ?>"> <?php echo $product['title']; ?>
 		<div class="imgbox">
-		<img src="<?php echo $image_url; ?>" width="100%"></div>
+			<img src="<?php echo $image_url; ?>" width="100%"></div>
 		</a>
 
 		<?php if($this->controller->isUserLogged()) {

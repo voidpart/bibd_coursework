@@ -1,16 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
 	<title>Hello world!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/main.css">
-	<link href='http://fonts.googleapis.com/css?family=Bad+Script&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<script src="<?php echo $this->app->url_prefix;?>/static/js/jquery.js"></script>
 	<script src="<?php echo $this->app->url_prefix;?>/static/js/bootstrap.js"></script>
 </head>
 <body>
 <div id="page" class="container">
-	<div id="header" class="container">
+	<div id="header" class="container-fluid">
 		<div class="col-md-3">
 			logo
 		</div>
@@ -40,7 +41,7 @@
 			</ul>
 		</div>
 	</nav>
-	<div id="content" class="container">
+	<div id="content" class="container-fluid">
 	<?php echo $content; ?>
 	</div>
 	<div id="footer" class="container">

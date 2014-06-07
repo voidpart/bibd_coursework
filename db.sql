@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
 	id INT NOT NULL AUTO_INCREMENT,
-	username VARCHAR(64) NOT NULL,
-	password VARCHAR(64) NOT NULL,
+	username VARCHAR(32) NOT NULL,
+	password VARCHAR(32) NOT NULL,
 	is_admin BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY (id),
 	UNIQUE(username)
@@ -11,8 +11,8 @@ CREATE TABLE users(
 DROP TABLE IF EXISTS categories;
 CREATE TABLE categories(
 	id INT NOT NULL AUTO_INCREMENT,
-	name VARCHAR(64) NOT NULL,
-	title VARCHAR(64) NOT NULL,
+	name VARCHAR(32) NOT NULL,
+	title VARCHAR(32) NOT NULL,
 	description TEXT NULL,
 	PRIMARY KEY (id),
 	UNIQUE(name)
@@ -22,10 +22,10 @@ DROP TABLE IF EXISTS products;
 CREATE TABLE products(
 	id INT NOT NULL AUTO_INCREMENT,
 	category_id INT NOT NULL,
-	title VARCHAR(64) NOT NULL,
+	title VARCHAR(256) NOT NULL,
 	image VARCHAR(256) NULL,
 	description TEXT NULL,
-	price DECIMAL(15, 2) NOT NULL,
+	price DECIMAL(15, 0) NOT NULL,
 	PRIMARY KEY (id)
 );
 

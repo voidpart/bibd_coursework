@@ -8,13 +8,13 @@ if(isset($error)){
 	<div class="form-group">
 		<label for="inputUsername" class="col-sm-2 control-label">Username</label>
 	    <div class="col-sm-10">
-	      <input type="username" class="form-control" id="inputUsername" placeholder="Username">
+	      <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username">
 	    </div>
 	</div>
 	<div class="form-group">
 		<label for="inputUsername" class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-10">
-	      <input type="username" class="form-control" id="inputUsername" placeholder="Username">
+	      <input type="password" class="form-control" id="inputUsername" name="password" placeholder="Username">
 	    </div>
 	</div>
 	<div class="form-group">
