@@ -39,7 +39,6 @@ class CatalogController extends AdminBaseController
 		{
 			$category = array();
 			$category['id'] = $id;
-			$category['name'] = $_POST['name'];
 			$category['title'] = $_POST['title'];
 			$category['description'] = $_POST['description'];
 
@@ -108,7 +107,6 @@ class CatalogController extends AdminBaseController
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
 			$category = array();
-			$category['name'] = $_POST['name'];
 			$category['title'] = $_POST['title'];
 			$category['description'] = $_POST['description'];
 

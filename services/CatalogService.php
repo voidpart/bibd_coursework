@@ -64,7 +64,6 @@ class CatalogService extends ModelService
 	{
 		$sql = "UPDATE categories SET
 		title = :title,
-		name = :name,
 		description = :description
 		WHERE id=:id";
 		$sth = $this->db->prepare($sql);
@@ -97,8 +96,8 @@ class CatalogService extends ModelService
 
 	public function addCategory($category)
 	{
-		$sql = "INSERT INTO categories(name, title, description) VALUES
-		(:name, :title, :description)";
+		$sql = "INSERT INTO categories(title, description) VALUES
+		(:title, :description)";
 		$sth = $this->db->prepare($sql);
 
 		$sth->execute($category);
