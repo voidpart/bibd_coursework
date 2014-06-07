@@ -44,6 +44,7 @@
 	$app->addRoute('admin/catalog/category/:id/edit', 'Admin/Catalog/CategoryEdit');
 	$app->addRoute('admin/catalog/category/:id/add', 'Admin/Catalog/ProductAdd');
 	$app->addRoute('admin/catalog/product/:id', 'Admin/Catalog/ProductEdit');
+	$app->addRoute('admin/catalog/xml', 'Admin/Catalog/ExportXml');
 	// $app->addRoute('admin/catalog/product/:id/edit', 'Admin/Catalog/ProductEdit');
 
 	$app->dispatchRequest($_GET['q']);

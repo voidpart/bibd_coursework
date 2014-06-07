@@ -119,6 +119,17 @@ class CatalogController extends AdminBaseController
 
 		return $this->render('admin/catalog/category_add');
 	}
+
+
+	public function ExportXml()
+	{
+		$xml = $this->service->exportXml();
+
+		header('Content-type: text/xml; charset=utf-8');
+		echo $xml;
+
+		return true;
+	}
 }
 
 ?>

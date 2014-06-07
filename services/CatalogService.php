@@ -115,6 +115,62 @@ class CatalogService extends ModelService
 
 		return $sth->fetchAll();	
 	}
+
+	public function exportXml()
+	{
+		$categories = $this->getAllCategories();
+
+		$x=new XMLWriter();
+		$x->openMemory();
+		$x->startDocument('1.0','UTF-8');
+		$x->startElement('catalog');
+
+		foreach ($categories as $category) {
+			$products = $this->getProductsForCategoryId($category['id']);
+
+			$x->startElement('category');
+			$x->writeAttribute('id', $category['id']);
+			
+			$x->startElement('title');
+			$x->text($category['title']);
+			$x->endElement();
+
+			$x->startElement('description');
+			$x->text($category['description']);
+			$x->endElement();
+
+			$x->startElement('products');
+			
+			foreach ($products as $product) {
+				$x->startElement('product');
+				$x->writeAttribute('id', $product['id']);
+				
+				$x->startElement('title');
+				$x->text($product['title']);
+				$x->endElement();
+
+				$x->startElement('description');
+				$x->text($product['description']);
+				$x->endElement();
+
+				$x->startElement('price');
+				$x->text($product['price']);
+				$x->endElement();
+
+				$x->startElement('image');
+				$x->text($product['image']);
+				$x->endElement();
+
+				$x->endElement();
+			}
+
+			$x->endElement();
+		}
+
+		$x->endElement();
+		$x->endDocument();
+		return $x->outputMemory();
+	}
 }
 
 ?>
