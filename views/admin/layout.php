@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Hello world!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="<?php echo $this->app->url_prefix;?>/static/css/admin.css">

@@ -5,8 +5,8 @@
     	<input type="text" name="username" class="form-control" value="<?php echo $user['username'] ?>">
  	</div>
  	<div class="form-group">
-    	<label for="formPrice">Пароль</label>
-    	<input type="number" name="price" class="form-control" value="<?php echo $user['password'] ?>">
+    	<label>Пароль</label>
+    	<input type="password" name="password" class="form-control" value="<?php echo $user['password'] ?>">
  	</div>
 	<div class="form-group">
     	<label><input type="checkbox" name="is_admin" <?php if($user['is_admin']) echo"checked"?>> Администратор</label>

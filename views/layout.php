@@ -28,7 +28,7 @@
 	<nav class="navbar navbar-default" role="navigation">
 		<div id="mainmenu" class="container-fluid">
 			<ul class="nav navbar-nav">
-				<li><a href="<?php echo $this->app->url_prefix?>">Главная</a></li>
+				<li><a href="<?php echo $this->app->url_prefix?>/">Главная</a></li>
 				<?php
 					$service = $this->app->makeService('Catalog');
 					$categories = $service->getAllCategories();
