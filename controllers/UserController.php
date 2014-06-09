@@ -17,12 +17,47 @@ class UserController extends BaseController
 		return $this->render('user/index', ['user' => $user]);
 	}
 
+	public function Register($params)
+	{
+		if($this->isUserLogged())
+		{
+			return $this->redirectLocal('');
+		}
+
+		if($_SERVER['REQUEST_METHOD'] == "POST")
+		{
+			$service = $this->app->makeService('User');
+			$user = array();
+			$user['username'] = $_POST['username'];
+			$user['password'] = $_POST['password'];
+			$user['is_admin'] = false;
+
+			$id = $service->addUser($user);
+
+			if($id)
+			{
+				$user['id'] = $id;
+				$this->userLogin($user);
+				return $this->redirectLocal('');
+			}
+			else
+			{
+				return $this->render('user/register', ['error' => 'Ошибка']);
+			}
+		}
+		else
+		{
+			return $this->render('user/register');
+		}
+	}
+
 	public function Login($params)
 	{
 		if($this->isUserLogged())
 		{
 			return $this->redirectLocal('');
 		}
+
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
 			$service = $this->app->makeService('User');
@@ -35,7 +70,7 @@ class UserController extends BaseController
 			}
 			else
 			{
-				return $this->render('user/login',['error' => 'Wrong name or password']);
+				return $this->render('user/login',['error' => 'Неправильное имя пользователя или пароль']);
 			}
 		}
 		else

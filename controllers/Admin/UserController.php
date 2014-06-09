@@ -61,6 +61,15 @@ class UserController extends AdminBaseController
 		return $this->render('admin/user/add');
 	}
 
+	public function Delete($params)
+	{
+		$id = $params['id'];
+
+		$this->service->deleteUserById($id);
+
+		return $this->redirectPath('Admin/User/Index');
+	}
+
 	public function Show($params)
 	{
 		$id = $params['id'];

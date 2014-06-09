@@ -21,7 +21,7 @@ foreach ($users as $user) {
 		</td>
 		<td>
 			<a href="<?php echo $this->app->urlFor('Admin/User/Edit', $user) ?>">Изменить</a>
-			<a href="#">Удалить</a>
+			<a href="<?php echo $this->app->urlFor('Admin/User/Delete', $user) ?>">Удалить</a>
 		</td>
 	</tr>
 

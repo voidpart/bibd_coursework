@@ -14,6 +14,7 @@
 	$app->addRoute('user', 'User/Index');
 	$app->addRoute('user/login', 'User/Login');
 	$app->addRoute('user/logout', 'User/Logout');
+	$app->addRoute('user/register', 'User/Register');
 
 	$app->addRoute('category/:id', 'Catalog/Category');
 	$app->addRoute('product/:id', 'Catalog/Product');
@@ -37,6 +38,7 @@
 	$app->addRoute('admin/users/add', 'Admin/User/Add');
 	$app->addRoute('admin/users/:id', 'Admin/User/Show');
 	$app->addRoute('admin/users/:id/edit', 'Admin/User/Edit');
+	$app->addRoute('admin/users/:id/delete', 'Admin/User/Delete');
 
 	$app->addRoute('admin/catalog', 'Admin/Catalog/Index');
 	$app->addRoute('admin/catalog/xml', 'Admin/Catalog/ExportXml');

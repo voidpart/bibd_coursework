@@ -69,7 +69,19 @@ class UserService extends ModelService
 		(:username, :password, :is_admin)";
 		$sth = $this->db->prepare($sql);
 
-		$sth->execute($user);
+		if($sth->execute($user))
+			return $this->db->lastInsertId();
+		else
+			return false;
+	}
+
+	public function deleteUserById($id)
+	{
+		$sql = "DELETE FROM users WHERE id = :id";
+
+		$sth = $this->db->prepare($sql);
+
+		return $sth->execute(['id' => $id]);
 	}
 }
 
