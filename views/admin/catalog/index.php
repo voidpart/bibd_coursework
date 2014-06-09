@@ -22,7 +22,7 @@ foreach ($categories as $category) {
 		</td>
 		<td>
 			<a href="<?php echo $this->app->urlFor('Admin/Catalog/CategoryEdit', $category) ?>">Изменить</a>
-			<a href="#">Удалить</a>
+			<a href="<?php echo $this->app->urlFor('Admin/Catalog/CategoryDelete', $category) ?>">Удалить</a>
 		</td>
 	</tr>
 

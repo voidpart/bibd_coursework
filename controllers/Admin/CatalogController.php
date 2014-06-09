@@ -102,6 +102,16 @@ class CatalogController extends AdminBaseController
 		return $this->render('admin/catalog/product_add');
 	}
 
+	public function ProductDelete($params)
+	{
+		$id = $params['id'];
+		$product = $this->service->getProductById($id);
+
+		$this->service->deleteProductById($id);
+
+		return $this->redirectPath('Admin/Catalog/Category', ['id' => $product['category_id']]);
+	}
+
 	public function CategoryAdd($params)
 	{
 		if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -118,6 +128,14 @@ class CatalogController extends AdminBaseController
 		return $this->render('admin/catalog/category_add');
 	}
 
+	public function CategoryDelete($params)
+	{
+		$id = $params['id'];
+
+		$this->service->deleteCategoryById($id);
+
+		return $this->redirectPath('Admin/Catalog/Index');
+	}
 
 	public function ExportXml()
 	{

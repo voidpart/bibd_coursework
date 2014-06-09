@@ -21,7 +21,7 @@ foreach ($products as $product) {
 		</td>
 		<td>
 			<a href="<?php echo $this->app->urlFor('Admin/Catalog/ProductEdit', $product) ?>">Изменить</a>
-			<a href="#">Удалить</a>
+			<a href="<?php echo $this->app->urlFor('Admin/Catalog/ProductDelete', $product) ?>">Удалить</a>
 		</td>
 	</tr>
 

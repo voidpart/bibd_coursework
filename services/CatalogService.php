@@ -170,6 +170,35 @@ class CatalogService extends ModelService
 		$x->endDocument();
 		return $x->outputMemory();
 	}
+
+	public function deleteProductById($id)
+	{
+		$sql = "DELETE FROM products WHERE id = :id";
+
+		$sth = $this->db->prepare($sql);
+
+		return $sth->execute(['id' => $id]);	
+	}
+
+	public function deleteProductsByCategoryId($id)
+	{
+		$sql = "DELETE FROM products WHERE category_id = :id";
+
+		$sth = $this->db->prepare($sql);
+
+		return $sth->execute(['id' => $id]);
+	}
+
+	public function deleteCategoryById($id)
+	{
+		$sql = "DELETE FROM categories WHERE id = :id";
+
+		$sth = $this->db->prepare($sql);
+
+		$sth->execute(['id' => $id]);
+
+		return $this->deleteProductsByCategoryId($id);
+	}
 }
 
 ?>
