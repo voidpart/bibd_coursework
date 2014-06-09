@@ -1,8 +1,9 @@
 <?php
 	$config = [
-		'session_name' => 'ecommerce_dev',
-		'url_prefix' => '/~h8x/dev',
-		'db_constring' => 'mysql:host=localhost;dbname=ecommerce',
-		'db_user' => 'ecommerce'
+		'session_name' => 'ecommerce',
+		'url_prefix' => '',
+		'db_constring' => 'mysql:host=localhost;dbname=ecommerce', # dbname - имя базы данных
+		'db_user' => 'ecommerce',	# имя пользователя базы данных
+		'db_pass' => ''		# пароль пользователя базы данных
 	];
 ?>
