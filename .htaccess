@@ -4,7 +4,7 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
  	RewriteEngine on
- 	RewriteBase /~h8x/dev/
+ 	RewriteBase /
 
  	RewriteCond %{REQUEST_FILENAME} !media/
  	RewriteCond %{REQUEST_FILENAME} !static/
