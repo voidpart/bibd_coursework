@@ -6,10 +6,10 @@
  	</div>
  	<div class="form-group">
     	<label for="formPrice">Пароль</label>
-    	<input type="number" name="price" class="form-control">
+    	<input type="password" name="password" class="form-control">
  	</div>
 	<div class="form-group">
-    	<label><input type="checkbox" name="is_admin"> Администратор</label>
+    	<label><input type="checkbox" name="is_admin">Администратор</label>
  	</div>
 	<div class="form-group">
 	      <button type="submit" class="btn btn-default">Создать</button>

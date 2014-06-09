@@ -1,3 +1,4 @@
+<h2>Регистрация</h2>
 <?php
 if(isset($error)){
 	echo "<p>$error</p>";
@@ -12,6 +13,12 @@ if(isset($error)){
 	    </div>
 	</div>
 	<div class="form-group">
+		<label class="col-sm-2 control-label">E-mail</label>
+	    <div class="col-sm-10">
+	      <input type="email" class="form-control" name="email" placeholder="E-mail">
+	    </div>
+	</div>
+	<div class="form-group">
 		<label class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-10">
 	      <input type="password" class="form-control" name="password" placeholder="Password">
@@ -19,7 +26,7 @@ if(isset($error)){
 	</div>
 	<div class="form-group">
 	    <div class="col-sm-10 col-sm-offset-2">
-	      <button type="submit" class="btn btn-default">Войти</button>
+	      <button type="submit" class="btn btn-default">Зарегистрироваться</button>
 	    </div>
 	</div>
 </form>

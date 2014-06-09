@@ -1,4 +1,5 @@
 <h2><?php echo $category['title'] ?></h2>
+<p><?php echo $category['description'] ?></p>
 
 <?php include __DIR__.'/'.'_products_grid.php'; ?>
 

@@ -9,6 +9,6 @@
     	<textarea class="form-control" id="formDescription" name="description"><?php echo $category['description'] ?></textarea>
  	</div>
 	<div class="form-group">
-	      <button type="submit" class="btn btn-default">Создать</button>
+	      <button type="submit" class="btn btn-default">Сохранить</button>
 	</div>
 </form>

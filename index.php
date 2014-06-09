@@ -14,6 +14,7 @@
 	$app->addRoute('user', 'User/Index');
 	$app->addRoute('user/login', 'User/Login');
 	$app->addRoute('user/logout', 'User/Logout');
+	$app->addRoute('user/register', 'User/Register');
 
 	$app->addRoute('category/:id', 'Catalog/Category');
 	$app->addRoute('product/:id', 'Catalog/Product');
@@ -37,14 +38,19 @@
 	$app->addRoute('admin/users/add', 'Admin/User/Add');
 	$app->addRoute('admin/users/:id', 'Admin/User/Show');
 	$app->addRoute('admin/users/:id/edit', 'Admin/User/Edit');
+	$app->addRoute('admin/users/:id/delete', 'Admin/User/Delete');
 
 	$app->addRoute('admin/catalog', 'Admin/Catalog/Index');
+	$app->addRoute('admin/catalog/xml', 'Admin/Catalog/ExportXml');
+	
 	$app->addRoute('admin/catalog/category/add', 'Admin/Catalog/CategoryAdd');
 	$app->addRoute('admin/catalog/category/:id', 'Admin/Catalog/Category');
 	$app->addRoute('admin/catalog/category/:id/edit', 'Admin/Catalog/CategoryEdit');
+	$app->addRoute('admin/catalog/category/:id/delete', 'Admin/Catalog/CategoryDelete');
 	$app->addRoute('admin/catalog/category/:id/add', 'Admin/Catalog/ProductAdd');
+
+	$app->addRoute('admin/catalog/product/:id/delete', 'Admin/Catalog/ProductDelete');
 	$app->addRoute('admin/catalog/product/:id', 'Admin/Catalog/ProductEdit');
-	$app->addRoute('admin/catalog/xml', 'Admin/Catalog/ExportXml');
 	// $app->addRoute('admin/catalog/product/:id/edit', 'Admin/Catalog/ProductEdit');
 
 	$app->dispatchRequest($_GET['q']);

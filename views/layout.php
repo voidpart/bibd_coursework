@@ -17,7 +17,7 @@
 		</div>
 		<div class="col-md-5" id="searchbox">
 			<form class="form-inline" action="<?php echo $this->app->urlFor('Catalog/Search') ?>">
-				<input type="text" placeholder="Поиск" name="search" class="form-control">
+				<input type="search" placeholder="Поиск" name="search" class="form-control">
 				<button type="submit" class="btn btn-default">Найти</button>
 			</form>
 		</div>
