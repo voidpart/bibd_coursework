@@ -33,6 +33,10 @@ class UserController extends AdminBaseController
 			$user['id'] = $id;
 			$user['username'] = $_POST['username'];
 			$user['password'] = $_POST['password'];
+			$user['email'] = $_POST['email'];
+			$user['name'] = $_POST['name'];
+			$user['surname'] = $_POST['surname'];
+			$user['address'] = $_POST['address'];
 			$user['is_admin'] = isset($_POST['is_admin']);
 
 			$this->service->updateUser($user);
@@ -51,6 +55,10 @@ class UserController extends AdminBaseController
 			$user = array();
 			$user['username'] = $_POST['username'];
 			$user['password'] = $_POST['password'];
+			$user['email'] = $_POST['email'];
+			$user['name'] = $_POST['name'];
+			$user['surname'] = $_POST['surname'];
+			$user['address'] = $_POST['address'];
 			$user['is_admin'] = isset($_POST['is_admin']);
 
 			$this->service->addUser($user);

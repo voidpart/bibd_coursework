@@ -56,6 +56,10 @@ class UserService extends ModelService
 		$sql = "UPDATE users SET
 		username = :username,
 		password = :password,
+		email = :email,
+		name = :name,
+		surname = :surname,
+		address = :address,
 		is_admin = :is_admin
 		WHERE id=:id";
 		$sth = $this->db->prepare($sql);
@@ -65,8 +69,8 @@ class UserService extends ModelService
 
 	public function addUser($user)
 	{
-		$sql = "INSERT INTO users(username, password, is_admin) VALUES
-		(:username, :password, :is_admin)";
+		$sql = "INSERT INTO users(username, password, email, name, surname, address, is_admin) VALUES
+		(:username, :password, :email, :name, :surname, :address, :is_admin)";
 		$sth = $this->db->prepare($sql);
 
 		if($sth->execute($user))
