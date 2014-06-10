@@ -30,6 +30,10 @@ class UserController extends BaseController
 			$user = array();
 			$user['username'] = $_POST['username'];
 			$user['password'] = $_POST['password'];
+			$user['email'] = $_POST['email'];
+			$user['name'] = $_POST['name'];
+			$user['surname'] = $_POST['surname'];
+			$user['address'] = $_POST['address'];
 			$user['is_admin'] = false;
 
 			$id = $service->addUser($user);

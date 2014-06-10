@@ -3,6 +3,10 @@ CREATE TABLE users(
 	id INT NOT NULL AUTO_INCREMENT,
 	username VARCHAR(32) NOT NULL,
 	password VARCHAR(32) NOT NULL,
+	name VARCHAR(32) NOT NULL,
+	email VARCHAR(32) NOT NULL,
+	surname VARCHAR(32) NOT NULL,
+	address VARCHAR(128) NOT NULL,
 	is_admin BOOLEAN DEFAULT FALSE,
 	PRIMARY KEY (id),
 	UNIQUE(username)
@@ -13,8 +17,7 @@ CREATE TABLE categories(
 	id INT NOT NULL AUTO_INCREMENT,
 	title VARCHAR(32) NOT NULL,
 	description TEXT NULL,
-	PRIMARY KEY (id),
-	UNIQUE(name)
+	PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS products;
@@ -57,4 +60,5 @@ CREATE TABLE order_products(
 	UNIQUE(order_id, product_id)
 );
 
-INSERT INTO users(username, password, is_admin) VALUES('root', 'root', TRUE);
+INSERT INTO users(username, password, email, name, surname, address, is_admin)
+VALUES('root', 'root', 'root', 'root', 'root', 'root', TRUE);
